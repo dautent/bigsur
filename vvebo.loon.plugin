@@ -1,0 +1,24 @@
+#!name=VVebo时间线修复
+#!desc=修复失效的用户时间线和我的页面
+#!author=dautent
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/VVebo.png
+#!category=Enhance
+#!openUrl=https://apps.apple.com/app/id670910957
+#!tag=vvebo
+#!loon_version=3.2.4(787)
+#!homepage=https://github.com/ajune0527/vpn_tool/tree/master/Tool/Loon/Plugin
+#!date=2025-04-28 00:00:00
+
+[Script]
+http-request ^https:\/\/api\.weibo\.cn\/2\/users\/show\? script-path = https://raw.githubusercontent.com/dautent/bigsur/refs/heads/master/vvebo.loon.js, tag = 修复时间线
+
+http-request ^https:\/\/api\.weibo\.cn\/2\/statuses\/user_timeline\? script-path = https://raw.githubusercontent.com/dautent/bigsur/refs/heads/master/vvebo.loon.js, tag = 修复时间线
+
+http-request ^https:\/\/api\.weibo\.cn\/2\/remind\/unread_count\? script-path = https://raw.githubusercontent.com/dautent/bigsur/refs/heads/master/vvebo.loon.js, tag = 修复时间线
+
+http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/statuses\/tab\? script-path = https://raw.githubusercontent.com/dautent/bigsur/refs/heads/master/vvebo.loon.js, requires-body = true, tag = 修复时间线
+
+http-response ^https:\/\/api\.weibo\.cn\/2\/cardlist\? script-path = https://raw.githubusercontent.com/dautent/bigsur/refs/heads/master/vvebo.loon.js, requires-body = true, tag = 修复我的页面
+
+[Mitm]
+hostname = api.weibo.cn
